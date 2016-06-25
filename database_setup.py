@@ -24,7 +24,7 @@ class Puppy(Base):
 	weight = Column(String(80), nullable = True)
 	id = Column(Integer, primary_key = True)
 	shelter_id = Column(Integer, ForeignKey('shelter.id'))
-
+	shelter = relationship(Shelter)
 
 engine = create_engine('sqlite:///puppyrescue.db')
 Base.metadata.create_all(engine)
