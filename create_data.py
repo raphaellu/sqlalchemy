@@ -8,10 +8,10 @@ DBSession = sessionmaker(bind = engine)
 session = DBSession()
 
 for i in range(0,5):
-	shelter = Shelter(name = "No" + (i+2) +  "Shelter")
+	shelter = Shelter(name = "No" + str(i+2) +  "Shelter")
 	session.add(shelter)
 
-	puppy = Puppy(name="doggy"+(i+1), gender ="male", dob=i+" month(s) before" shelter=shelter)
+	puppy = Puppy(name="doggy"+str(i+1), gender ="male", dob=str(i)+" month(s) before",shelter=shelter)
 	session.add(puppy)
 session.commit()
 
